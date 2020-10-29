@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Bike Sharing Demand</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+
+    </head>
+<body  style="background-image: url('static/1.png'); background-repeat: no-repeat;  background-attachment: fixed;
+  background-size: cover;">
+
+
+  <!-- Text Area -->
+    	<div class="ml-container">
+            <h1 style="color: white">Bike Sharing Demand</h1>
+    		<form action="{{ url_for('predict') }}" method="POST">
+
+
+
+  <select style="text-align: center;width: 360px;height: 30px;margin-bottom: 5px;" name="season" required>
+     <option disabled selected>Select a Season</option>
+    <option>Springe</option>
+    <option>Summer</option>
+    <option>Fall</option>
+    <option>Winter</option>
+  </select> <br>
+
+
+
+    <select style="text-align: center;width: 360px;height: 30px;margin-bottom: 5px;" name="weather" required>
+     <option disabled selected>Select a Weather</option>
+    <option>clear</option>
+    <option>Cloudy</option>
+    <option>Light_rain</option>
+    <option>Heavy rain</option>
+  </select> <br>
+
+        <input class="form-input" type="text" name="temp" placeholder="temp Max(40.18)" required><br>
+
+        <input class="form-input" type="text" name="humidity" placeholder="humidity Max(100)" required><br>
+
+       <input class="form-input" type="text" name="windspeed" placeholder="windspeed Max(56.99)" required><br>
+
+        <input class="form-input" type="text" name="casual" placeholder=" number of non-registered user rentals " required><br>
+
+        <input class="form-input" type="text" name="registered" placeholder="number of registered user rentals" required><br>
+
+        <input class="form-input" type="text" name="hour" placeholder="Enter Hour In Between 0-23" required><br>
+
+
+        		<input style="padding: 15px;width: 85px; background-color: red;color: white" type="submit" value="Predict">
+        	</form>
+
+           <center> <h2 style="background-color: #502807; width: 35%;color: white">Number of total Rentals Is : {{ prediction }} </h2></center>
+            <p>{{ prediction_test }}</p>
+
+    	</div>
+
+         <center> <h2 style=" width: 35%;color: white">Copy Right By Pratyusa Dwibedy 
+            <br> 
+            <a style="text-decoration: none;color: white" href="https://github.com/pratyusa98">See Project Code Click here</a>
+           </h2></center>
+
+</body>
+</html>
